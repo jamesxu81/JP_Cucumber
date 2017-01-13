@@ -11,20 +11,23 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObject.BasePage;
+import pageObject.DriverFactory;
 import pageObject.ResultPage;
 import pageObject.SearchPage;
 import utility.Utility;
 
 public class BaseSteps {
-	WebDriver driver;
+	   private WebDriver driver;
 	BasePage ba;
 	ResultPage re;
 	SearchPage se;
 
 	@Before
+	
 	public void startUp() {
+		System.out.println(System.getProperty("browser"));
+		   driver = new DriverFactory().getDriver();
 
-		driver = new ChromeDriver();
 	}
 
 	@After()
