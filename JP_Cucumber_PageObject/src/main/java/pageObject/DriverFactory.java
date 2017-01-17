@@ -3,11 +3,14 @@ package pageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverFactory {
 	
-	 protected static WebDriver driver;
+	private WebDriver driver;
 
 
 	    public DriverFactory() {
@@ -20,28 +23,32 @@ public class DriverFactory {
 	    }
 
 	    private void createNewDriverInstance() {
-//	        String browser = new PropertyReader().readProperty("browser");
+
 	    	
 	    	String browser = System.getProperty("browser");
 	    	
-//	    	String browser = "chrome";
-	    	
+
 	    	if (browser == null)
-	    		browser = "firefox";
+	    		browser = "chrome";
 	    	
 	    	
 	    	switch (browser.toLowerCase()) {
 	    	case "firefox":
-	            driver = new FirefoxDriver();
+	    	    driver = new FirefoxDriver();
 	            break;
 	    	case "chrome":
 	            driver = new ChromeDriver();
 	            break;
 	    	case "ie":
-	            driver = new InternetExplorerDriver();
+//	    		DesiredCapabilities cap = new DesiredCapabilities();
+//	    		cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+	    		DesiredCapabilities dc = DesiredCapabilities.internetExplorer();
+		        dc.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+		        dc.setCapability("ignoreProtectedModeSettings", true);
+	            driver = new InternetExplorerDriver(dc);
 	            break;
 	    	default:
-	    		 driver = new FirefoxDriver();
+	    		driver = new ChromeDriver();
 		            break;}
 	    }
 

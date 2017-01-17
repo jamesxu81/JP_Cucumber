@@ -125,10 +125,11 @@ public class SearchPage extends BasePage {
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("from")));
 	return new SearchPage(driver);
 	}
-
+	
 	public SearchPage waitHop() {
 	WebDriverWait wait = new WebDriverWait(driver, 3000);
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("HOP")));
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Change search")));
 	return new SearchPage(driver);
 	}
+
 }

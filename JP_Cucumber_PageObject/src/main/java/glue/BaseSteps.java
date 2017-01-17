@@ -4,6 +4,8 @@ import java.awt.AWTException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -28,6 +30,7 @@ public class BaseSteps {
 		System.out.println(System.getProperty("browser"));
 		   driver = new DriverFactory().getDriver();
 
+		
 	}
 
 	@After()
@@ -45,7 +48,6 @@ public class BaseSteps {
 		// Write code here that turns the phrase above into concrete actions
 
 		ba = new BasePage(driver);
-
 		ba.navigateTo();
 
 	}
@@ -57,13 +59,6 @@ public class BaseSteps {
 		se.waitFrom();
 		se.searching(arg1, arg2);
 		se.waitHop();
-
-	}
-
-	@When("^I click the search button$")
-	public void i_click_the_search_button() throws InterruptedException {
-		// Write code here that turns the phrase above into concrete actions
-
 	}
 
 	@Then("^I go to the result page with correct \"([^\"]*)\"$")

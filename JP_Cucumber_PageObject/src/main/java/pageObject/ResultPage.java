@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ResultPage extends BasePage {
 	public ResultPage(WebDriver driver) {
@@ -75,4 +78,8 @@ public class ResultPage extends BasePage {
 			Assert.assertEquals(fare, prices.get(i).getText());
 		return new ResultPage(driver);
 	}
+	
+
+	
+	
 }

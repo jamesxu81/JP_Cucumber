@@ -21,10 +21,6 @@ public class BasePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void closeDriver() {
-		driver.quit();
-
-	}
 	
 	 public BasePage navigateTo() {
 		    driver.navigate().to("https://at.govt.nz/bus-train-ferry/journey-planner/");
