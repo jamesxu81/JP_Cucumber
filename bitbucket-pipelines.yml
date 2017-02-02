@@ -10,4 +10,4 @@ pipelines:
     - step:
         script: # Modify the commands below to build your repository.
        
-           - bash ./JP_Cucumber_PageObject/gradlew build
+           - bash ./JP_Cucumber_PageObject/gradle build
