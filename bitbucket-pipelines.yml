@@ -9,4 +9,5 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - ./JP_Cucumber_PageObject/gradlew clean build
+       
+           - bash ./JP_Cucumber_PageObject/gradlew assembleDebug
