@@ -1,0 +1,13 @@
+# This is a sample build configuration for Gradle.
+# Check our guides at https://confluence.atlassian.com/x/VYk8Lw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+
+image: qlik/gradle
+pipelines:
+  default:
+    - step:
+        script: # Modify the commands below to build your repository.
+       
+           - bash ./JP_Cucumber_PageObject/gradlew clean build
