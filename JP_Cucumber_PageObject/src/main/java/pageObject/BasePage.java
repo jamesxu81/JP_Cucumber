@@ -1,6 +1,5 @@
 package pageObject;
 
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
 import java.io.File;
@@ -26,7 +25,7 @@ public class BasePage {
 		    driver.navigate().to("https://at.govt.nz/bus-train-ferry/journey-planner/");
 		    driver.manage().window().maximize();
 			driver.manage().deleteAllCookies();
-		    assertThat(driver.getTitle(), containsString("Journey"));
+//		    assertThat(driver.getTitle(), containsString("Journey"));
 		    return new BasePage(driver);
 		  }
 
