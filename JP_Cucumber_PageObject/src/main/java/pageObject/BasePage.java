@@ -1,14 +1,5 @@
 package pageObject;
 
-import static org.junit.Assert.assertThat;
-
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -20,15 +11,6 @@ public class BasePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
-	 public BasePage navigateTo() {
-		    driver.navigate().to("https://at.govt.nz/bus-train-ferry/journey-planner/");
-		    driver.manage().window().maximize();
-			driver.manage().deleteAllCookies();
-//		    assertThat(driver.getTitle(), containsString("Journey"));
-		    return new BasePage(driver);
-		  }
-
 
 }
 

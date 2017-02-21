@@ -55,6 +55,13 @@ public class ResultPage extends BasePage {
 		return routeName.getText();
 	}
 
+	//Wait
+	public ResultPage waitHop() {
+		WebDriverWait wait = new WebDriverWait(driver, 3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Change search")));
+		return new ResultPage(driver);
+	}
+	
 	// ReplaceBlank
 	public String replaceBlank(String s) {
 		Pattern p = Pattern.compile("   |\r|\n");

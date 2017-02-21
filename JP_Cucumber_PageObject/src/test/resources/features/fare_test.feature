@@ -9,5 +9,5 @@ Scenario Outline:
     
 Examples:
     | from |to |fares|
-    | Newmarket Train Station |  Gribblehurst Park   |HOP   $1.80|
-    |  Britomart Train Station |   Swanson Train Station   |HOP   $4.90|
+    | Newmarket Train Station |  Gribblehurst Park   |HOP   $1.85|
+    |  Britomart Train Station |   Swanson Train Station   |HOP   $4.85|
