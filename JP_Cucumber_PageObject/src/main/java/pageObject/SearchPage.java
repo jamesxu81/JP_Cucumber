@@ -61,25 +61,30 @@ public class SearchPage extends BasePage {
 		return new SearchPage(driver);
 	}
 
+	//Simulate Manual Typing
+	public void Typing(WebElement element, String value) throws InterruptedException{
+	    String val = value; 
+	    element.clear();
+
+	    for (int i = 0; i < val.length(); i++){
+	        char c = val.charAt(i);
+	        String s = new StringBuilder().append(c).toString();
+	        Thread.sleep(100);
+	        element.sendKeys(s);
+	    }       
+	}
+	
+	
 	// Search
 	public ResultPage searching(String f, String t) throws InterruptedException, AWTException {
-		from.sendKeys(f);
-		Thread.sleep(5000);
 		from.click();
+		Typing(from, f);
 		from.sendKeys(Keys.ARROW_DOWN);
-		Thread.sleep(1000);
 		from.sendKeys(Keys.ENTER);
-		Thread.sleep(1000);
-		to.sendKeys(t);
-		Thread.sleep(5000);
 		to.click();
+		Typing(to, t);
 		to.sendKeys(Keys.ARROW_DOWN);
-		// Robot robot_to = new Robot();
-		// robot_to.keyPress(KeyEvent.VK_DOWN);
-		Thread.sleep(1000);
 		to.sendKeys(Keys.ENTER);
-		// robot_to.keyPress(KeyEvent.VK_ENTER);
-		Thread.sleep(1000);
 		search.click();
 		return new ResultPage(driver);
 	}
