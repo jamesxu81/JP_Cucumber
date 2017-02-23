@@ -13,6 +13,8 @@ import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 public class Utility {
+	
+	//Screenshot
 
 	public static void captureScreenshot(WebDriver driver, String screenshotName) {
 
@@ -29,4 +31,28 @@ public class Utility {
 			System.out.println("Exception while taking screenshot " + e.getMessage());
 		}
 	}
+	
+	
+	
+	
+		//Highlight Element
+	
+	public void highlightElement(WebElement element) {
+		
+	
+		String originalStyle = element.getAttribute("style");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 3px solid red;');", element);
+		
+		try {
+			Thread.sleep(3000);
+		} 
+		catch (InterruptedException e) {}
+		
+		js.executeScript("arguments[0].setAttribute('style', '" + originalStyle + "');", element);
+		
+	}
+	
+
 }
