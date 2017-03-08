@@ -26,7 +26,7 @@ public class ResultPage extends BasePage {
 	private WebElement price;
 
 	// WebElement Prices
-	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[2]/span[last()]/b")
+	@FindBy(className = "price")
 	private List<WebElement> prices;
 
 	// WebElement Lines
@@ -42,7 +42,7 @@ public class ResultPage extends BasePage {
 	private List<WebElement> departs;
 
 	// WebElement Durations
-	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[1]/span[2]")
+	@FindBy(className = "duration")
 	private List<WebElement> durations;
 
 	// GetPrice
