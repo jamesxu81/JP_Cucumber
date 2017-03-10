@@ -22,7 +22,8 @@ public class ResultPage extends BasePage {
 	}
 
 	// WebElement Price
-	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[2]/span[3]/b")
+//	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[2]/span[3]/b")
+	@FindBy(className = "price")
 	private WebElement price;
 
 	// WebElement Prices
@@ -34,15 +35,18 @@ public class ResultPage extends BasePage {
 	private List<WebElement> lines;
 
 	// WebElement RouteName
-	@FindBy(xpath = "//div[@class='departArrive']/strong")
+//	@FindBy(xpath = "//div[@class='departArrive']/strong")
+	@FindBy(className = "departArrive")
 	private WebElement routeName;
 
 	// WebElement Departs
-	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[1]/span[1]/b")
+//	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[1]/span[1]/b")
+	@FindBy(className = "nextdeparture")
 	private List<WebElement> departs;
 
 	// WebElement Durations
-	@FindBy(className = "duration")
+	@FindBy(xpath = "//*[contains(@id,'journey')]/a/div[1]/span[2]")
+//	@FindBy(className = "duration")
 	private List<WebElement> durations;
 
 	// GetPrice
@@ -55,13 +59,13 @@ public class ResultPage extends BasePage {
 		return routeName.getText();
 	}
 
-	//Wait
+	// Wait
 	public ResultPage waitHop() {
 		WebDriverWait wait = new WebDriverWait(driver, 3000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Change search")));
 		return new ResultPage(driver);
 	}
-	
+
 	// ReplaceBlank
 	public String replaceBlank(String s) {
 		Pattern p = Pattern.compile("   |\r|\n");
@@ -81,12 +85,11 @@ public class ResultPage extends BasePage {
 
 	// AssertFare
 	public ResultPage assertFares(String fare) throws InterruptedException, AWTException {
-		for (int i = 0; i < prices.size(); i++)
-			Assert.assertEquals(fare, prices.get(i).getText());
+		// for (int i = 0; i < prices.size(); i++)
+		// Assert.assertEquals(fare, prices.get(i).getText());
+		for (WebElement e : prices)
+		Assert.assertEquals(fare, e.getText());
 		return new ResultPage(driver);
 	}
-	
 
-	
-	
 }
