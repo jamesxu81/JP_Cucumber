@@ -35,7 +35,7 @@ public class BaseSteps {
 			Utility.captureScreenshot(driver, scenario.getName());
 		}
 
-		driver.close();
+//		driver.close();
 	}
 
 	@Given("^I go to JP Home page$")
@@ -48,18 +48,18 @@ public class BaseSteps {
 	}
 
 	@When("^I fill \"([^\"]*)\", \"([^\"]*)\" and click search button$")
-	public void i_fill_and_click_search_button(String arg1, String arg2) throws InterruptedException, AWTException {
+	public void i_fill_and_click_search_button(String from, String to) throws InterruptedException, AWTException {
 		// Write code here that turns the phrase above into concrete actions
-		re = se.searching(arg1, arg2);
+		re = se.searching(from, to);
 		re.waitHop();
 	}
 
 	@Then("^I go to the result page with correct \"([^\"]*)\"$")
-	public void i_go_to_the_result_page_with_correct(String arg1) throws InterruptedException, AWTException {
+	public void i_go_to_the_result_page_with_correct(String fare) throws InterruptedException, AWTException {
 		// Write code here that turns the phrase above into concrete actions
 
 		re.printInfor();
-		re.assertFares(arg1);
+		re.assertFares(fare);
 
 	}
 
